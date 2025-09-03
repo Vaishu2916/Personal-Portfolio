@@ -46,7 +46,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <nav className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
           <h1 className="text-xl font-bold text-blue-700">Vaishnavi</h1>
-          <ul className="flex space-x-6 font-medium">
+          <ul className="flex space-x-5 font-medium">
             <li>
               <a href="#home" className="hover:text-blue-600 transition">
                 Home
@@ -83,13 +83,13 @@ export default function Home() {
 >
   {/* Text Content */}
   <div className="md:w-1/2 space-y-6 text-center md:text-left">
-    <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+    <h1 className="text-4xl md:text-7xl font-bold leading-tight">
       Crafting{" "}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-500 to-blue-500">
         Smart
       </span>{" "}
       &{" "}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
         Impactful
       </span>{" "}
       Digital <br /> Experiences
@@ -101,49 +101,57 @@ export default function Home() {
     <p className="font-semibold text-xl text-purple-300">Frontend Enthusia_</p>
 
     {/* Buttons */}
-    <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
-      <a
-        href="/Vaishu_Resume.pdf"
-        download
-        className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-medium hover:scale-105 transition transform duration-300 shadow-lg"
-      >
-        Download Resume ⬇
-      </a>
-      <a
-        href="#contact"
-        className="border border-purple-400 text-purple-300 px-6 py-3 rounded-full font-medium hover:bg-purple-600 hover:text-white transition duration-300"
-      >
-        Get in Touch →
-      </a>
-    </div>
-  </div>
-
-  {/* Profile Image */}
-  <motion.div
-  className="relative w-64 h-64 md:w-80 md:h-80 mb-10 md:mb-0 group"
+        <motion.div
+          className="flex flex-wrap gap-4 justify-center md:justify-start"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <a
+            href="/vaishu_resume.pdf"
+            download
+            className="bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-2 px-5 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2"
+          >
+            Download Resume ⬇
+          </a>
+          <a
+            href="#contact"
+            className="border border-purple-500 py-2 px-5 rounded-lg text-purple-300 hover:bg-purple-600/20 transition duration-300"
+          >
+            Get in Touch →
+          </a>
+        </motion.div>
+      </div>
+      
+  {/* Profile Image Section */}
+<motion.div
+  className="relative w-72 h-72 md:w-[420px] md:h-[420px] mb-10 md:mb-0 group md:-ml-8"
   initial={{ scale: 0.6, opacity: 0, rotate: -10 }}
   whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
-  transition={{ duration: 0.9, ease: "easeOut" }}
+  transition={{ duration: 1.2, ease: "easeOut" }}
   viewport={{ once: true }}
+  animate={{ y: [0, -12, 0] }} // Floating animation
+  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
 >
-  {/* Glowing Blur Background Effect */}
-  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 blur-xl opacity-40 animate-glow z-0" />
+  {/* Glowing Background */}
+  <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 blur-2xl opacity-50 animate-pulse"></div>
 
-  {/* Gradient Border and Image Container */}
-  <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-tr from-pink-500 via-purple-500 to-blue-500 z-10">
-    <div className="w-full h-full bg-[#1a1340] rounded-2xl flex items-center justify-center overflow-hidden">
+  {/* Gradient Border + Image */}
+  <div className="absolute inset-0 rounded-3xl p-[4px] bg-gradient-to-tr from-pink-500 via-purple-500 to-blue-500 z-10">
+    <div className="w-full h-full bg-[#1a1340] rounded-3xl flex items-center justify-center overflow-hidden border-4 border-purple-400 shadow-lg">
       <img
         src="/chinnu.jpg"
         alt="Vaishnavi"
-        className="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-300"
+        className="w-full h-full object-cover rounded-3xl transform group-hover:scale-110 transition-transform duration-500"
       />
     </div>
   </div>
 </motion.div>
+
+
+
 </section>
-
-      
-
   {/* About Me Section */}
 <section
   id="about"
@@ -259,7 +267,7 @@ export default function Home() {
         date: "May 2020",
       },
       {
-        title: "TS Model School – Kuntala (Nirmal)",
+        title: "TS Model School & Jr College – Kuntala (Nirmal)",
         detail: "MPC: 81.7%",
         date: "Apr 2022",
       },
@@ -296,6 +304,7 @@ export default function Home() {
         <SkillSection />
 
       
+
 
 {/* Projects Section */}
 <section
@@ -369,6 +378,7 @@ export default function Home() {
     ))}
   </div>
 </section>
+
 {/* CODING PROFILES */}
       <section id="coding" className="py-20 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 bg-gradient-to-r from-[#14001f] to-[#1e0054] text-white">
       <h2 className="text-4xl font-bold text-center mb-12 text-purple-400 drop-shadow-lg animate-pulse">Coding Profiles</h2>
