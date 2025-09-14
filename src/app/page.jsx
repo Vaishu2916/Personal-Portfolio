@@ -124,30 +124,50 @@ export default function Home() {
         </motion.div>
       </div>
       
-  {/* Profile Image Section */}
+  {/* Profile Section */}
 <motion.div
-  className="relative w-72 h-72 md:w-[420px] md:h-[420px] mb-10 md:mb-0 group md:-ml-8"
-  initial={{ scale: 0.6, opacity: 0, rotate: -10 }}
-  whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
-  transition={{ duration: 1.2, ease: "easeOut" }}
-  viewport={{ once: true }}
-  animate={{ y: [0, -12, 0] }} // Floating animation
-  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+  className="relative w-72 h-72 md:w-[420px] md:h-[420px] mx-auto md:mx-0"
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1.5, ease: "easeOut" }}
 >
   {/* Glowing Background */}
-  <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 blur-2xl opacity-50 animate-pulse"></div>
+  <div className="absolute -inset-10 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 blur-3xl opacity-40 animate-pulse-glow"></div>
 
-  {/* Gradient Border + Image */}
-  <div className="absolute inset-0 rounded-3xl p-[4px] bg-gradient-to-tr from-pink-500 via-purple-500 to-blue-500 z-10">
-    <div className="w-full h-full bg-[#1a1340] rounded-3xl flex items-center justify-center overflow-hidden border-4 border-purple-400 shadow-lg">
-      <img
-        src="/chinnu.jpg"
-        alt="Vaishnavi"
-        className="w-full h-full object-cover rounded-3xl transform group-hover:scale-110 transition-transform duration-500"
-      />
-    </div>
-  </div>
+  {/* Profile Image with Unique Wave Motion */}
+  <motion.img
+    src="/chinnu.jpg"
+    alt="Vaishnavi"
+    className="w-full h-full object-cover rounded-3xl border-2 border-white shadow-[0_0_40px_rgba(255,255,255,0.8)] relative z-10"
+    animate={{
+      y: [0, -20, 0, 20, 0],   // floating up & down wave motion
+      rotate: [0, 2, -2, 0],   // gentle tilt
+      scale: [1, 0.95, 1.05, 1] // subtle breathing effect
+    }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
 </motion.div>
+
+{/* Glow Animation */}
+<style jsx global>{`
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 5s ease-in-out infinite;
+  }
+`}</style>
 
 
 
